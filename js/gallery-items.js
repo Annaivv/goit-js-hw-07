@@ -82,3 +82,7 @@ const markup = galleryItems
   .join("");
 
 list.innerHTML = markup;
+
+list.addEventListener("click", function (event) {
+  event.preventDefault();
+});
