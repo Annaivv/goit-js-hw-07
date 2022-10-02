@@ -83,19 +83,29 @@ const markup = galleryItems
 
 list.innerHTML = markup;
 
+const instance = basicLightbox.create(`
+    <img src="" width="800" height="600">
+`);
+
 list.addEventListener("click", function (event) {
   event.preventDefault();
 });
 
 list.addEventListener("click", onItemClick);
+// window.addEventListener("keydown", onEscape);
 
 function onItemClick(evt) {
   let listItem = evt.target.classList.contains("gallery__image");
   if (listItem) {
     const instance = basicLightbox.create(`
-    <img src=${evt.target.dataset.source} width="800" height="600">
-`);
+        <img src=${evt.target.dataset.source} width="800" height="600">
+    `);
 
     instance.show();
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        instance.close();
+      }
+    });
   }
 }
