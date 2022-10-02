@@ -31,7 +31,6 @@ list.addEventListener("click", function (event) {
 });
 
 list.addEventListener("click", onItemClick);
-// window.addEventListener("keydown", onEscape);
 
 function onItemClick(evt) {
   let listItem = evt.target.classList.contains("gallery__image");
